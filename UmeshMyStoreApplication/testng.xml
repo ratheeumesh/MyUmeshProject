@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="CrossBrowser Testing" parallel="tests" >
+	<listeners>
+	<listener class-name="com.umeshStore.Utility.ListenerClass"></listener>
+	</listeners>
+  <test thread-count="5" name="Test1">
+  <parameter name="browser" value="Chrome"></parameter>
+    <classes>
+      <class name="com.umeshStore.testcases.IndexPageTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test thread-count="5" name="Test2">
+  <parameter name="browser" value="Firefox"></parameter>
+    <classes>
+      <class name="com.umeshStore.testcases.IndexPageTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test thread-count="5" name="Test3">
+  <parameter name="browser" value="IE"></parameter>
+  <groups>
+  <run>
+  <include name="smoke"></include>
+  </run>
+  </groups>
+    <classes>
+      <class name="com.umeshStore.testcases.IndexPageTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
